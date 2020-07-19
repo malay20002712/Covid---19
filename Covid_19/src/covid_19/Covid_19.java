@@ -11,20 +11,61 @@ public class Covid_19
 							,"Runny or stuffy nose","Sore throat","Diarrhea","Headaches"
 							,"Shortness of breath","Loss of taste/smell"
 						   };
-		int cov_19=0,flu=0,cold=0;
-		String ch=null,choice=null;			
-	do
-	{
+		String ch=null,choice=null;		
+		int cov_19=0,flu=0,cold=0;		
+		/* These are the main Counter variables that will count the 
+		 * Dominance Factor of a particular symptom over the available 
+		 * three types of illness that covers this whole program.
+		 * _____________________________________________________________
+		 * The Three illness are :
+		 * ->COVID-19.
+		 * ->FLU.
+		 * ->COLD. 
+		 * 
+		 * The symptoms in symptoms[] are all the symptoms that'll be 
+		 * of our importance.
+		 * _____________________________________________________________
+		 * ::Dominance-Factor::
+		 * ->Common(c) :+4
+		 * ->Sometimes(s) :+3
+		 * ->Mild(m) :+2
+		 * ->Rare(r) :+1
+		 * ->NO(n) :+0
+		 * _____________________________________________________________
+		 * 				
+		 * ________________::SYMPTOMS-CHART::________________		   
+		 * |     			|			   |	  |			|
+		 * |Symptoms|Illness|	 cov_19    |cold  |	flu 	|
+		 * |________________|______________|______|_________|
+		 * |->Fever  		:		c		r	 	c		|
+		 * |->Fatigue		:		s		s		s		|	
+		 * |->Cough  		:		c		m		c		|
+		 * | .												|
+		 * | .												|			
+		 * | .												|
+		 * |->Loss of		:		c		n		n		|
+		 * |  taste/smell 									|
+		 * |________________________________________________|  
+		 * 
+		 * _____________________________________________________________
+		*/
+					
+	do//For controlled termination of program. 
+	{ 
 		for(String x:symptoms)
 		{
 			System.out.println("\nDo you have "+x+"?(Yes/No)");
 			ch=sc.next();
-			switch(ch)
+			switch(ch)//First switch decides if a person has that symptom or not.
 			{
 				case "No" : break;
 				case "no" : break;
 				case "Yes" : 
-							switch(x)
+							switch(x)/*Second switch decides the Dominance Factor of
+									   that particular symptom over the three illness
+									   discussed earlier.Refer SYMPTOMS-CHART 
+									   and Dominance-Factor.									   
+									*/
 							{
 								case "Fever":cov_19+=4;cold+=1;flu+=4;
 								break;
@@ -75,25 +116,35 @@ public class Covid_19
 								break;
 								case "Loss of taste/smell":cov_19+=4;
 								break;								
-							}
+							}//End of second switch.
 							break;													
-			}			
+			}//End of first switch.			
 		}
-		if(cov_19>flu&&cov_19>cold) 
+		if(cov_19>flu&&cov_19>cold)//If the person has CORONA virus possibly. 
 		{
-			System.out.println("\n::WARNING::\nYou may have Corona-Virus!\nContact your nearest covid-care facility asap.\nCovid_19 Helpline No.(24x7/Tollfree) : 1075");			
+			System.out.println("\n::WARNING::\nYou may have Corona-Virus!"
+					+ "\nContact your nearest covid-care facility asap."
+					+ "\nCovid-19 Helpline No.(24x7/Tollfree) : 1075");			
 		}
-		else if(cov_19<flu&&flu>cold) 
-		{
-			System.out.println("\nDon't worry take some meds and rest for few days,you may have just a minor flu.");			
+		else//If the person has either FLU or COLD or both. 
+		{				
+			if(flu==cold)
+			{
+			  System.out.println("\nDon't worry take some meds and rest for few days,"			
+					+ "you may have just a minor cold/flu.");						
+			}
+			else if(flu>cold)
+			{
+				System.out.println("\nDon't worry take some meds and rest for few days,"
+						+ "you may have just a minor flu.");
+			}
+			else
+				System.out.println("\nDon't worry take some meds and rest for few days,"
+						+ "you may have just a minor cold.");
 		}
-		else if(cov_19<cold&&flu<cold) 
-		{
-			System.out.println("\nDon't worry take some meds and rest for few days,you may have just a minor cold.");			
-		}
-		cov_19=0;cold=0;flu=0;
+		cov_19=0;cold=0;flu=0;//Resetting the counter variables for a new person.		
 		System.out.println("\nDo you want to continue?(Yes/No) : ");
-		choice=sc.next();
+		choice=sc.next();//For controlled termination of program.
 	}while(choice.equals("yes")||choice.equals("Yes"));
 		sc.close();
 	}
