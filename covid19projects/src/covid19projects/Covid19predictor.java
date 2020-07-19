@@ -189,9 +189,10 @@ public class Covid19predictor {
 				System.out.println("all the symptoms says that you are infected by " + l.get(i - 1));
 				String test = (String) l.get(i - 1);
 				if (test.equalsIgnoreCase("corona")) {
-					System.out.println("You should consult a doctor hence.");
+					System.out.println("You should consult a doctor hence. Toll free number : 1075");
 				} else if (test.equalsIgnoreCase("fever")) {
-					System.out.println("Take care of your self you need not consult a doctor stay at home");
+					System.out.println("Take care of your self, you need not consult a doctor stay at home"
+							+", taking medicines will help you");
 				} else if (test.equalsIgnoreCase("flu")) {
 					System.out.println("Staying at home and taking care of yourself would help you.");
 				}
