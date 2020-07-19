@@ -8,3 +8,4 @@
 # : :SYMPTOMS-CHART: :
 
 ![](https://www.childrensmn.org/assets/img/chart-of-symptoms.jpg)
+
