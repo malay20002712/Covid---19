@@ -4,3 +4,4 @@ This is a project about identifying whether a person has cold/flu/covid-19 on th
 Whether that person should consult a doctor for minor flu/cold or has to go for a covid-19 test.
 
 This is a self-assessment test more or less.
+code-test
