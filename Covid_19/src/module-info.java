@@ -1,0 +1,2 @@
+module covid_19 {
+}
