@@ -54,14 +54,17 @@ public class Covid_19
 	{ 
 		for(String x:symptoms)
 		{
+			
 			System.out.println("\nDo you have "+x+"?(Yes/No)");
 			ch=sc.next();
-			switch(ch)//First switch decides if a person has that symptom or not.
+			//These statement decides if a person has that symptom or not.
+			if(ch.equals("no")||ch.equals("No"))
 			{
-				case "No" : break;
-				case "no" : break;
-				case "Yes" : 
-							switch(x)/*Second switch decides the Dominance Factor of
+				
+			}
+			else if(ch.equals("yes")||ch.equals("Yes"))	
+			{
+							switch(x)/*Switch case decides the Dominance Factor of
 									   that particular symptom over the three illness
 									   discussed earlier.Refer SYMPTOMS-CHART 
 									   and Dominance-Factor.									   
@@ -89,38 +92,12 @@ public class Covid_19
 								break;
 								case "Loss of taste/smell":cov_19+=4;
 								break;								
-							}
-							break;
-				case "yes" :
-							switch(x)
-							{
-								case "Fever":cov_19+=4;cold+=1;flu+=4;
-								break;
-								case "Fatigue":cov_19+=3;cold+=3;flu+=3;
-								break;
-								case "Cough":cov_19+=4;cold+=2;flu+=4;
-								break;
-								case "Sneezing":cold+=4;
-								break;
-								case "Aches & pains":cov_19+=3;cold+=4;flu+=4;
-								break;
-								case "Runny or stuffy nose":cov_19+=1;cold+=4;flu+=3;
-								break;
-								case "Sore throat":cov_19+=3;cold+=4;flu+=3;
-								break;
-								case "Diarrhea":cov_19+=1;flu+=3;
-								break;
-								case "Headaches":cov_19+=3;cold+=1;flu+=4;
-								break;
-								case "Shortness of breath":cov_19+=3;
-								break;
-								case "Loss of taste/smell":cov_19+=4;
-								break;								
-							}//End of second switch.
-							break;													
-			}//End of first switch.			
+							}						
+			}
 		}
-		if(cov_19>flu&&cov_19>cold)//If the person has CORONA virus possibly. 
+		if(cov_19==0&&flu==0&&cold==0)
+			System.out.println("\nYou're marked safe!");
+		else if(cov_19>flu&&cov_19>cold)//If the person has CORONA virus possibly. 
 		{
 			System.out.println("\n::WARNING::\nYou may have Corona-Virus!"
 					+ "\nContact your nearest covid-care facility asap."
